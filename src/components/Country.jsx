@@ -1,11 +1,18 @@
 import { useState } from "react";
 
-const Country = ({country}) => {
+const Country = ({country ,handleVisitedCountry}) => {
    const {name,flags,capital,region,languages,population,cca3}=country;
    const [visited,setVisited]=useState(false)
    const handleClick=()=>{
     setVisited(!visited)
    }
+   
+   const passWithParams=()=>{
+    handleVisitedCountry(country)
+   }
+
+
+
     return (
         <div >
             <div className="border-2
@@ -16,7 +23,10 @@ const Country = ({country}) => {
             <h3 className="text-center ">Region: {region}</h3>
             <h5 className="text-center">Population: {population}</h5>
    <h5 className="text-center">{cca3}</h5>
+   <div className="flex ">
    <button onClick={handleClick} className="flex btn  mx-auto btn-outline btn-success btn-xs">{ !visited ? "going":"visited"}</button>
+   <button onClick={passWithParams} className="flex btn  mx-auto btn-outline btn-success btn-xs">Mark as visited</button>
+   </div>
  
         </div>
         </div>
