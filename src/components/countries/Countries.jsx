@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Country from "../country";
-import { list } from "postcss";
+
 
 
 const Countries = () =>{
@@ -23,12 +23,12 @@ setVisitedCountries(newVisitedCountries)
     return (
       
         <div>
-           <h1 className="text-center font-bold "> Countries: {countries.length}</h1>
+           <h1 className="text-center font-bold "> Countries: <span className="text-green-500">{countries.length}</span></h1>
            <div>
-        <h5>Visited Countries: {visitedCountries.length}</h5>
+        <h5 className="text-center mb-2 mt-2 font-semibold">Visited Countries: <span className="text-red-600">{visitedCountries.length}</span></h5>
         <ul>
           {
-            visitedCountries.map(country=><li key={country.cca3}>{country.name.common}</li>)
+            visitedCountries.map(country=><li className="text-center font-semibold mb-4" key={country.cca3}>{country.name.common}</li>)
           }
         </ul>
       </div>
